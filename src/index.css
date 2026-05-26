@@ -22,7 +22,7 @@
 
   /* TYPOGRAPHY */
   --font-family-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-family-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* GRID SPACING (8pt system) */
   --space-1: 8px;
@@ -41,8 +41,8 @@
 
 [data-theme="dark"] {
   /* DARK THEME */
-  --bg: #011126;
-  --bg-page: #011126;
+  --bg: #0c0a3b;
+  --bg-page: #0c0a3b;
   --bg-card: rgba(2, 25, 55, 0.40);
   --text: #f0f4f8;
   --text-secondary: rgba(240, 244, 248, 0.65);
@@ -97,7 +97,13 @@ button {
   border: none;
   background: none;
   cursor: pointer;
-  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--blue-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .modal-overlay {

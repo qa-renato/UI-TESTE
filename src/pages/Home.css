@@ -290,61 +290,40 @@
   opacity: 0.9;
 }
 
-/* BLOCO 3 - NUMEROS DA OPERACAO */
+/* BLOCO 3 - STATUS DE OPERAÇÃO */
 .metrics-block {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(12, 10, 59, 0.07);
-  border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(12, 10, 59, 0.04);
-  overflow: hidden;
+  gap: 0;
+  padding: 0;
 }
 
-.metric-card {
-  flex: 1;
-  padding: 24px 32px;
-  position: relative;
-  /* Instead of cards, they are cells in a panel */
-}
-
-/* Subtle blue accent as requested */
-.metric-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 36px;
-  width: 1px;
-  background: rgba(0, 101, 254, 0.55);
-  border-radius: 0;
-}
-
-.metric-card:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 20%;
-  height: 60%;
-  width: 1px;
-  background: var(--border);
-  opacity: 0.5;
+.metric-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
 }
 
 .metric-value {
-  font-size: 32px;
+  font-size: 15px;
   font-weight: 700;
-  color: #0c0a3b;
-  letter-spacing: -0.03em;
-  font-family: var(--font-family-heading);
+  color: var(--text);
+  letter-spacing: -0.02em;
+  font-family: var(--font-family-body);
 }
 
 .metric-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(12, 10, 59, 0.52);
-  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.metric-sep {
+  width: 1px;
+  height: 14px;
+  background: var(--border);
+  margin: 0 20px;
+  flex-shrink: 0;
 }
 
 /* BLOCO 4 - PULSOS DO ECOSSISTEMA */

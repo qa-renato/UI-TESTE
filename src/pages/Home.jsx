@@ -70,19 +70,21 @@ export default function Home() {
         </button>
       </section>
 
-      {/* BLOCO 3 - NÚMEROS DA OPERAÇÃO */}
+      {/* BLOCO 3 - STATUS DE OPERAÇÃO */}
       <section className="metrics-block">
-        <div className="metric-card">
-          <div className="metric-value">105</div>
-          <div className="metric-label">Bases de dados</div>
+        <div className="metric-stat">
+          <span className="metric-value">105</span>
+          <span className="metric-label">bases de dados</span>
         </div>
-        <div className="metric-card">
-          <div className="metric-value">1.751.985</div>
-          <div className="metric-label">Total de registros</div>
+        <div className="metric-sep" />
+        <div className="metric-stat">
+          <span className="metric-value">1.751.985</span>
+          <span className="metric-label">registros</span>
         </div>
-        <div className="metric-card">
-          <div className="metric-value">84</div>
-          <div className="metric-label">Tabelas ativas na semana</div>
+        <div className="metric-sep" />
+        <div className="metric-stat">
+          <span className="metric-value">84</span>
+          <span className="metric-label">tabelas ativas esta semana</span>
         </div>
       </section>
 
