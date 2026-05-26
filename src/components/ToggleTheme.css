@@ -1,0 +1,62 @@
+.toggle-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 2px;
+}
+
+[data-theme="dark"] .toggle-theme {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(21, 183, 254, 0.12);
+}
+
+.toggle-theme-btn {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: color 140ms ease;
+  flex-shrink: 0;
+}
+
+.toggle-theme-btn:hover:not(.active) {
+  color: var(--text);
+  background: var(--blue-ice);
+}
+
+.toggle-theme-btn.active {
+  color: var(--blue-core);
+}
+
+[data-theme="dark"] .toggle-theme-btn.active {
+  color: var(--blue-bright);
+}
+
+.toggle-theme-indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-hover);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  z-index: 0;
+}
+
+[data-theme="dark"] .toggle-theme-indicator {
+  background: rgba(21, 183, 254, 0.1);
+  border-color: rgba(21, 183, 254, 0.25);
+  box-shadow: 0 0 0 0;
+}
+
+.toggle-theme-icon {
+  position: relative;
+  z-index: 1;
+}

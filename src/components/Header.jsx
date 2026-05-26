@@ -1,13 +1,11 @@
 import { Bell, X, Trash2, Info, CheckCircle2, Download, XCircle } from 'lucide-react';
-import { HugeiconsIcon } from '@hugeicons/react';
-import { Sun03Icon, Moon02Icon } from '@hugeicons/core-free-icons';
 import { useState, useRef, useEffect } from 'react';
+import ToggleTheme from './ToggleTheme';
 import './Header.css';
 
-export default function Header({ isDark, toggleTheme, isHomeLayout }) {
+export default function Header({ isDark, theme, setTheme, isHomeLayout }) {
   const [showNotifications, setShowNotifications] = useState(false);
-  const [isRotating, setIsRotating] = useState(false);
-  const notifRef = useRef(null);
+const notifRef = useRef(null);
 
   const [notifications, setNotifications] = useState([
     {
@@ -55,11 +53,6 @@ export default function Header({ isDark, toggleTheme, isHomeLayout }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [notifRef]);
 
-  const handleThemeToggle = () => {
-    setIsRotating(true);
-    toggleTheme();
-    setTimeout(() => setIsRotating(false), 300);
-  };
 
   return (
     <header className="page-header">
@@ -139,16 +132,7 @@ export default function Header({ isDark, toggleTheme, isHomeLayout }) {
           )}
         </div>
 
-        <button 
-          className="theme-toggle-switch"
-          data-dark={isDark}
-          onClick={handleThemeToggle}
-          aria-label="Toggle Theme"
-        >
-          <div className="theme-switch-knob">
-            {isDark ? <HugeiconsIcon icon={Moon02Icon} size={12} color="var(--blue-mid)" /> : <HugeiconsIcon icon={Sun03Icon} size={12} color="var(--blue-mid)" />}
-          </div>
-        </button>
+        <ToggleTheme theme={theme} setTheme={setTheme} />
 
       </div>
     </header>
