@@ -1,0 +1,177 @@
+:root {
+  /* INBOT COLOR PALETTE */
+  --blue-core: #0065fe;
+  --blue-deep: #023c8f;
+  --blue-bright: #15b7fe;
+
+  /* LIGHT THEME (default) */
+  --bg: #ebebed;
+  --bg-page: #F9FBFF;
+  --bg-card: rgba(255, 255, 255, 0.72);
+  --text: #0c0a3b;
+  --text-secondary: rgba(12, 10, 59, 0.66);
+  --text-tertiary: rgba(12, 10, 59, 0.46);
+  --text-muted: var(--text-secondary); /* Backwards compatibility */
+  --border: rgba(12, 10, 59, 0.07);
+  --border-hover: rgba(0, 101, 254, 0.14);
+  --blue-mid: var(--blue-core);
+  --blue-ice: rgba(0, 101, 254, 0.035);
+  --blue-ice-fill: rgba(0, 101, 254, 0.07);
+  --sidebar-glass: linear-gradient(180deg, #FBFCFF 0%, #F4F8FE 100%);
+  --sidebar-active: rgba(0, 101, 254, 0.07);
+
+  /* TYPOGRAPHY */
+  --font-family-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* GRID SPACING (8pt system) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+
+  /* TRANSITIONS */
+  --easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --speed-fast: 120ms;
+  --speed-normal: 180ms;
+  --speed-complex: 240ms;
+}
+
+[data-theme="dark"] {
+  /* DARK THEME */
+  --bg: #011126;
+  --bg-page: #011126;
+  --bg-card: rgba(2, 25, 55, 0.40);
+  --text: #f0f4f8;
+  --text-secondary: rgba(240, 244, 248, 0.65);
+  --text-tertiary: rgba(240, 244, 248, 0.45);
+  --text-muted: var(--text-secondary);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(21, 183, 254, 0.25);
+  --blue-mid: var(--blue-bright);
+  --blue-ice: rgba(21, 183, 254, 0.06);
+  --blue-ice-fill: rgba(21, 183, 254, 0.10);
+  --sidebar-glass: rgba(2, 20, 45, 0.40);
+  --sidebar-active: rgba(21, 183, 254, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background var(--speed-normal) ease, color var(--speed-normal) ease, border-color var(--speed-normal) ease;
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  background-color: var(--bg-page);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+h1 { font-size: 36px; font-weight: 700; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 24px;
+  border: 0.5px solid var(--border);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  animation: modalEnter var(--speed-fast) var(--easing) forwards;
+}
+
+[data-theme="dark"] .modal-content {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.interactive-value .copy-feedback {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-muted);
+}
+
+.interactive-value:hover .copy-feedback {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.interactive-value .copy-feedback.success {
+  opacity: 1;
+  transform: translateX(0);
+  color: #1D9E75;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--text-muted);
+  transition: background var(--speed-fast) var(--easing), color var(--speed-fast) var(--easing);
+}
+
+.btn-icon:hover {
+  background: var(--blue-ice);
+  color: var(--blue-core);
+}

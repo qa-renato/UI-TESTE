@@ -1,0 +1,148 @@
+.topbar {
+  position: fixed;
+  top: 24px;
+  right: 48px;
+  left: 140px; /* Offset for sidebar */
+  height: 64px;
+  border-radius: var(--border-radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 40;
+}
+
+.topbar-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.topbar-btn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.user-profile-wrapper {
+  position: relative;
+  margin-left: 8px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.user-profile:hover, .user-profile.active {
+  transform: scale(1.05);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #00d2ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+}
+
+.avatar.large {
+  width: 56px;
+  height: 56px;
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+/* User Menu Dropdown */
+.user-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  width: 260px;
+  padding: 20px 16px;
+  border-radius: var(--border-radius-lg);
+  z-index: 50;
+  animation: modalScaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.user-menu-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 12px;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-top: 8px;
+}
+
+.user-email {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-md);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: var(--bg-tertiary);
+  transform: translateX(4px);
+}
+
+.menu-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 8px 0;
+}
+
+.menu-item.logout {
+  color: #ff3b30;
+}
+
+.menu-item.logout:hover {
+  background-color: rgba(255, 59, 48, 0.1);
+}

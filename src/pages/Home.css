@@ -1,0 +1,455 @@
+.home-page {
+  padding: 40px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-height: 100vh;
+  background: 
+    radial-gradient(1200px at 20% 0%, rgba(0,101,254,0.04), transparent),
+    linear-gradient(180deg, #F9FBFF 0%, #F4F8FE 100%);
+}
+
+[data-theme="dark"] .home-page {
+  background: 
+    radial-gradient(1200px at 20% 0%, rgba(21,183,254,0.04), transparent),
+    linear-gradient(180deg, #0d1526 0%, #0a1020 100%);
+}
+
+/* BLOCO 1 - BOAS VINDAS */
+.greeting-block {
+  width: 100%;
+  max-width: 800px;
+  /* Removed card styles: no background, no shadow, no border */
+}
+
+.greeting-block h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  font-family: var(--font-family-heading);
+}
+
+.greeting-block p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 680px;
+  opacity: 0.8;
+}
+
+/* BLOCO 2 - FILTRO */
+.filter-block {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -16px;
+  position: relative;
+  z-index: 10;
+}
+
+.btn-filter {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-filter:hover {
+  background: var(--bg-page);
+  border-color: rgba(0, 101, 254, 0.3);
+  color: var(--blue-core);
+  box-shadow: 0 4px 12px rgba(0, 101, 254, 0.08);
+}
+
+.filter-badge {
+  background: var(--blue-core);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Apple Filter Modal */
+.apple-filter-modal {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  animation: modalEnter 220ms var(--easing) forwards;
+  position: relative;
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 150ms ease;
+}
+
+.btn-close-modal:hover {
+  background: var(--blue-ice);
+  color: var(--text);
+}
+
+[data-theme="dark"] .apple-filter-modal {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.filter-header {
+  margin-bottom: 28px;
+}
+
+.filter-header h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.filter-results-count {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.filter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.apple-input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+/* Custom Multi Select */
+.custom-select-wrapper {
+  position: relative;
+}
+
+.custom-select-box {
+  width: 100%;
+  min-height: 44px;
+  background: var(--bg-page);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 8px 36px 8px 12px;
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 200ms ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+[data-theme="dark"] .custom-select-box {
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.custom-select-box:hover {
+  border-color: rgba(0,0,0,0.15);
+}
+
+[data-theme="dark"] .custom-select-box:hover {
+  border-color: rgba(255,255,255,0.2);
+}
+
+.custom-select-box::after {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--text-muted);
+  border-bottom: 1.5px solid var(--text-muted);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.select-placeholder {
+  color: var(--text-muted);
+}
+
+.pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-pill {
+  background: var(--blue-ice-fill);
+  color: var(--blue-mid);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 150ms ease;
+}
+
+.filter-pill:hover {
+  opacity: 0.8;
+}
+
+.custom-select-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  z-index: 10;
+  padding: 8px;
+}
+
+.custom-select-option {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-select-option:hover {
+  background: var(--bg-page);
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.apple-btn-ghost {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 150ms ease;
+}
+
+.apple-btn-ghost:hover {
+  background: rgba(0,0,0,0.04);
+  color: var(--text);
+}
+
+[data-theme="dark"] .apple-btn-ghost:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.apple-btn-primary {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--blue-mid);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: opacity 150ms ease;
+}
+
+.apple-btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* BLOCO 3 - NUMEROS DA OPERACAO */
+.metrics-block {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(12, 10, 59, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(12, 10, 59, 0.04);
+  overflow: hidden;
+}
+
+.metric-card {
+  flex: 1;
+  padding: 24px 32px;
+  position: relative;
+  /* Instead of cards, they are cells in a panel */
+}
+
+/* Subtle blue accent as requested */
+.metric-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px;
+  width: 1px;
+  background: rgba(0, 101, 254, 0.55);
+  border-radius: 0;
+}
+
+.metric-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: var(--border);
+  opacity: 0.5;
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0c0a3b;
+  letter-spacing: -0.03em;
+  font-family: var(--font-family-heading);
+}
+
+.metric-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(12, 10, 59, 0.52);
+  margin-top: 4px;
+}
+
+/* BLOCO 4 - PULSOS DO ECOSSISTEMA */
+.pulses-block {
+  /* Continuous layout, no heavy card */
+  margin-top: 16px;
+}
+
+.pulses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pulses-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  font-family: var(--font-family-heading);
+}
+
+.pulses-header a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-core);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 160ms ease;
+}
+
+.pulses-header a:hover {
+  background: rgba(0, 101, 254, 0.06);
+}
+
+.pulses-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pulse-item {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(12, 10, 59, 0.06);
+  transition: background 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 6px;
+  margin: 0 -16px;
+}
+
+.pulse-item:last-child {
+  border-bottom: none;
+}
+
+.pulse-item:hover {
+  background: rgba(0, 101, 254, 0.035);
+}
+
+[data-theme="dark"] .pulse-item:hover {
+  background: rgba(21, 183, 254, 0.03);
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #1D9E75;
+  border-radius: 50%;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.pulse-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-right: 16px;
+  min-width: 240px;
+}
+
+.pulse-env {
+  font-size: 13px;
+  color: var(--text-muted);
+  flex: 1;
+  opacity: 0.8;
+}
+
+.pulse-rows {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-right: 48px;
+  text-align: right;
+  min-width: 100px;
+  font-family: var(--font-family-mono), monospace;
+}
+
+.pulse-time {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  min-width: 80px;
+  text-align: right;
+}
